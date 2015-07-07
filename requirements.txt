@@ -1,0 +1,7 @@
+flask
+flask-binding
+flask-marshmallow
+flask-migrate
+flask-script
+flask-sqlalchemy
+psycopg2
