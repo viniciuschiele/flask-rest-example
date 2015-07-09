@@ -19,3 +19,11 @@ class TestView(TestCase):
         data = dict(owner_id=1, name='test')
         response = self.client.post('/repos', data=json.dumps(data), content_type='application/json')
         assert response.status_code == 200
+
+    def test_create_duplicated_repo(self):
+        data = dict(owner_id=1, name='test')
+        response = self.client.post('/repos', data=json.dumps(data), content_type='application/json')
+        assert response.status_code == 200
+
+        response = self.client.post('/repos', data=json.dumps(data), content_type='application/json')
+        assert response.status_code == 409
