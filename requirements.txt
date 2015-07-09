@@ -4,4 +4,5 @@ flask-marshmallow
 flask-migrate
 flask-script
 flask-sqlalchemy
+marshmallow-sqlalchemy
 psycopg2
