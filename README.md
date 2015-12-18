@@ -9,3 +9,8 @@ Example of how to set up a flask rest api + blueprint + sqlalchemy + marshmallow
 * Integration with SQL Alchemy
 * Unit tests per module/blueprint
 * wsgi ready to go for testing and production environments
+
+### Running on development machine
+```
+python manage.py runserver
+```
