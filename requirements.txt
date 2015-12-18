@@ -1,6 +1,6 @@
-flask
-flask-io
-flask-migrate
-flask-script
-flask-sqlalchemy
-psycopg2
+flask==0.10.1
+flask-io==1.9.1
+flask-migrate==1.6.0
+flask-script==2.0.5
+flask-sqlalchemy==2.1
+psycopg2==2.6.1
