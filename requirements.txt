@@ -1,8 +1,6 @@
 flask
-flask-binding
-flask-marshmallow
+flask-io
 flask-migrate
 flask-script
 flask-sqlalchemy
-marshmallow-sqlalchemy
 psycopg2
