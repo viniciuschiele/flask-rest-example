@@ -2,7 +2,6 @@ import logging
 import os
 
 from flask import Flask
-from flask import jsonify
 from werkzeug.utils import import_string
 from . import config, db, io
 
@@ -34,7 +33,7 @@ def create_app(environment):
 
 
 def home():
-    return jsonify(dict(name='Flask REST API'))
+    return dict(name='Flask REST API')
 
 
 def register_blueprints(app):
