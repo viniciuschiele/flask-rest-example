@@ -1,6 +1,7 @@
 flask==0.10.1
-flask-io==1.9.1
-flask-migrate==1.6.0
+flask-io==1.10.0
+flask-migrate==1.7.0
 flask-script==2.0.5
 flask-sqlalchemy==2.1
+sqlalchemy-utils==0.31.6
 psycopg2==2.6.1

@@ -1,5 +1,8 @@
-from flask import Blueprint
 from datetime import datetime
+from flask import Blueprint
+from flask_io import fields
+from sqlalchemy import func
+from sqlalchemy_utils.functions import sort_query
 from .models import Company
 from .schemas import CompanySchema
 from .. import db, io
@@ -40,9 +43,24 @@ def get_company(id):
 
 
 @app.route('/', methods=['GET'])
+@io.from_query('name', fields.String())
+@io.from_query('order_by', fields.String(missing='name'))
+@io.from_query('offset', fields.Integer(missing=0))
+@io.from_query('limit', fields.Integer(missing=10))
 @io.marshal_with(CompanySchema)
-def list_companies():
-    return Company.query.all()
+def list_companies(name, order_by, offset, limit):
+    query = Company.query
+
+    if name:
+        query = query.filter(func.lower(Company.name).contains(func.lower(name)))
+    if order_by:
+        query = sort_query(query, order_by)
+    if offset:
+        query = query.offset(offset)
+    if limit:
+        query = query.limit(limit)
+
+    return query.all()
 
 
 @app.route('/<int:id>', methods=['POST', 'PATCH'])
