@@ -12,6 +12,7 @@ app = Blueprint('companies', __name__, url_prefix='/companies')
 
 @app.route('/', methods=['POST'])
 @io.from_body('company', CompanySchema)
+@io.marshal_with(CompanySchema)
 def add_company(company):
     db.session.add(company)
     db.session.commit()
